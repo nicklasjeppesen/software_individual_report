@@ -220,15 +220,16 @@ y = re.search("^import (\S+)", line)
 print(y.group(1))
 '''
 
-def remove_right_until_first_slash(input_string):
-    # Split the string at the last "/" and take the first part
-    parts = input_string.rsplit("/", 1)
-    if len(parts) > 1:
-        return parts[0]
-    else:
-        return input_string
+import re
 
-# Example usage:
-input_string = "zeeguu-api/zeeguu/api/utils/route_wrappers.py"
-result = remove_right_until_first_slash(input_string)
-print(result)
+line = "from zeeguu.core.user_activity_hooks.article_interaction_hooks import distill_article_interactions"
+#line = "from zeeguu.core.model import UserActivityData"
+y = re.search("^from (\S+)", line)
+
+
+pattern = r"from\s+[\w.]+\s+import\s+([\w\s,]+)"
+match = re.search(pattern, line)
+
+imported_items_str = match.group(1)
+imported_items = [item.strip() for item in imported_items_str.split(",")]
+print(imported_items)
