@@ -1,5 +1,7 @@
 import subprocess
 
+# For installation, see this page: https://github.com/mermaid-js/mermaid-cli
+
 def generate_sequence_diagram(mermaid_code, output_file):
     try:
         # Write Mermaid code to a temporary file
@@ -19,10 +21,15 @@ def generate_sequence_diagram(mermaid_code, output_file):
 # Example Mermaid code
 mermaid_code = """
 sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>+Bob: Hello Bob, how are you?
-    Bob-->>-Alice: I'm good, thanks! How about you?
+participant Alice
+participant Bob
+participant Cob
+Alice->>+Bob: Hello Bob, how are you?
+Bob-->>-Alice: I'm good, thanks! How about you?
+Bob->>+Cob: Hello Bob, how are you?
+Alice->>+Cob: Hello Bob, how are you?
+Cob->>-Alice: Hello Bob, how are you?
+    
 """
 
 output_file = "sequence_diagram.png"
