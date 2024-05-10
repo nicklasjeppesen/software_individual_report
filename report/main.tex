@@ -91,15 +91,16 @@
     \chapter{Results}
 
     \section{What the code provide}
-    By providing a filepath as string and function name to the function "analyze" in the file "static\_analysis\_ipynb", it output a png file naming the provided function name containing the the sequence diagram of function. The sequence diagram objects is the module names, that is because sometimes a file can import a function from a module and not a class, so a safe choice is to name the object the module name, and then horientizal line named name of the functions that are called. 
+    By providing a filepath as string and function name to the function "analyze" in the file "zeep/static\_analysis\_ipynb", it output a png file naming the provided function name containing the the sequence diagram of function. The sequence diagram objects is the module names, that is because sometimes a file can import a function from a module and not a class, so a safe choice is to name the object the module name, and then horientizal line named name of the functions that are called. 
    
    
     \section{Workflow}
-     So how does the work really work? 
-    In the Static\_analysis.ipynb file, I have defined, a function called masterFunction, that take a function name and a path to the python file. First the masterFunction get the content of the python file, thereafter it gets the function body as a string. thereafter it a list of called functions in the input function,
-    
+   
+ 
     \subsection*{How does the static analyzer work?}
     
+    \paragraph{0: Master function:} The main function is named analyze, and can be find in the path: zeep/static\_analysis.ipynb, by scroling down. Its parameters is a function name as string, and a path to the file as string, and output a sequence diagram png file which has the name of the function. 
+
     \paragraph*{1: Get a list of module/functions calls:}
     by providing a file path and a function name the the analyze function, it first calls a function named GetfunctionsModuleUsedInfunction. 
     This return a list of module;function names, that the provided function is called that are defined in the code base, and not built in functions or from third party lib. 
